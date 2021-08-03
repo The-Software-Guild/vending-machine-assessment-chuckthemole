@@ -1,0 +1,16 @@
+/Users/Chuck/Projects/MThree/VendingMachine/src/main/java/com/mthree/vendingmachine/controller/VendingMachineController.java
+/Users/Chuck/Projects/MThree/VendingMachine/src/main/java/com/mthree/vendingmachine/ui/UserIO.java
+/Users/Chuck/Projects/MThree/VendingMachine/src/main/java/com/mthree/vendingmachine/service/VendingMachineServiceLayer.java
+/Users/Chuck/Projects/MThree/VendingMachine/src/main/java/com/mthree/vendingmachine/dto/Change.java
+/Users/Chuck/Projects/MThree/VendingMachine/src/main/java/com/mthree/vendingmachine/dao/VendingMachineAuditDao.java
+/Users/Chuck/Projects/MThree/VendingMachine/src/main/java/com/mthree/vendingmachine/dao/VendingMachineAuditDaoImpl.java
+/Users/Chuck/Projects/MThree/VendingMachine/src/main/java/com/mthree/vendingmachine/App.java
+/Users/Chuck/Projects/MThree/VendingMachine/src/main/java/com/mthree/vendingmachine/dto/Snack.java
+/Users/Chuck/Projects/MThree/VendingMachine/src/main/java/com/mthree/vendingmachine/service/VendingMachineDuplicateIdException.java
+/Users/Chuck/Projects/MThree/VendingMachine/src/main/java/com/mthree/vendingmachine/dao/VendingMachinePersistenceException.java
+/Users/Chuck/Projects/MThree/VendingMachine/src/main/java/com/mthree/vendingmachine/ui/VendingMachineView.java
+/Users/Chuck/Projects/MThree/VendingMachine/src/main/java/com/mthree/vendingmachine/service/VendingMachineServiceLayerImpl.java
+/Users/Chuck/Projects/MThree/VendingMachine/src/main/java/com/mthree/vendingmachine/ui/UserIOConsoleImpl.java
+/Users/Chuck/Projects/MThree/VendingMachine/src/main/java/com/mthree/vendingmachine/service/VendingMachineDataValidationException.java
+/Users/Chuck/Projects/MThree/VendingMachine/src/main/java/com/mthree/vendingmachine/dao/VendingMachineDaoFileImpl.java
+/Users/Chuck/Projects/MThree/VendingMachine/src/main/java/com/mthree/vendingmachine/dao/VendingMachineDao.java
