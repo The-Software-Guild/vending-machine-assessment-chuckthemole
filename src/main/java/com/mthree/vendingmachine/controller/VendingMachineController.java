@@ -39,12 +39,15 @@ public class VendingMachineController {
             switch (menuSelection) {
                 case 1 -> insertMoney();
                 case 2 -> selectSnack();
-                case 3 -> listSnacks();
-                case 4 -> printMoneyInMachine();
-                case 5 -> keepGoing = false;
+                case 3 -> getChange();
+                case 4 -> listSnacks();
+                case 5 -> printMoneyInMachine();
+                case 6 -> keepGoing = false;
                 default -> unknownCommand();
             }
         }
+        
+        getChange();
         exitMessage();
     }
 
@@ -54,17 +57,27 @@ public class VendingMachineController {
     
     private void insertMoney() throws VendingMachineInvalidValueException {
         String insertedMoney = view.displayDisplayInsertionAndGetMoneyInserted();
-        service.insertMoneyToMachine(insertedMoney);
+        if(!service.insertMoneyToMachine(insertedMoney)) {
+            view.incorrectFormatBanner();
+        }
+    }
+    
+    private void selectSnack() throws VendingMachinePersistenceException {
+        view.displayDisplayGetSnackBanner();
+        String snack = view.displaySnackListAndChooseSnack(service.getAllSnacks());
+        service.removeSnack(snack);
+        
+    }
+    
+    private void getChange() {
+        view.displayDisplayGetChangeBanner();
+        view.displayChange(service.getChange());
     }
     
     private void printMoneyInMachine() {
         view.displayDisplayMoneyInMachineBanner();
         String moneyInMachine = service.getMoneyInMachine();
         view.displayMoneyInMachine(moneyInMachine);
-    }
-    
-    private void selectSnack() {
-        
     }
     
     private void listSnacks() throws VendingMachinePersistenceException {
@@ -93,5 +106,9 @@ public class VendingMachineController {
 
     private void exitMessage() {
         view.displayExitBanner();
+    }
+    
+    private void incorrectFormatInputMessage() {
+        view.incorrectFormatBanner();
     }
 }

@@ -5,6 +5,8 @@
  */
 package com.mthree.vendingmachine.dao;
 
+import com.mthree.vendingmachine.dto.Change;
+import com.mthree.vendingmachine.dto.Change.Coin;
 import com.mthree.vendingmachine.dto.Snack;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -61,9 +63,11 @@ public class VendingMachineDaoFileImpl implements VendingMachineDao {
     }
 
     @Override
-    public Snack removeSnack(String dvdTitle) {
-        Snack removedDvd = snacks.remove(dvdTitle);
-        return removedDvd;
+    public Snack removeSnack(String snackTitle) {
+        Snack snack = snacks.get(snackTitle);
+        snack.setCount(snack.getCount() - 1);
+        moneyInMachine = moneyInMachine.subtract(new BigDecimal(snack.getPrice()));
+        return snack;
     }
 
     @Override
@@ -115,5 +119,26 @@ public class VendingMachineDaoFileImpl implements VendingMachineDao {
     @Override
     public Snack editSnack(String dvdTitle) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String getChange() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(moneyInMachine.toString()).append("\n").append(getChangeInCoins());
+        moneyInMachine = BigDecimal.ZERO;
+        return sb.toString();
+    }
+
+    @Override
+    public String getChangeInCoins() {
+        BigDecimal amountInPennies = moneyInMachine.movePointRight(2);
+        Map<Coin, Integer> coins = Change.makeChangeFromPennies(amountInPennies);
+        
+        StringBuilder sb = new StringBuilder();
+        for (Coin coin : coins.keySet()) {
+            sb.append(coin).append(": ").append(coins.get(coin)).append("\n");
+        }
+        
+        return sb.toString();
     }
 }

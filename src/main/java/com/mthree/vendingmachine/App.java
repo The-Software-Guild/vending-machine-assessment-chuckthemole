@@ -36,6 +36,5 @@ public class App {
         VendingMachineController controller = new VendingMachineController(myService, myView);
         controller.run();
         myDao.writeSnacksToFile("vending_machine_list.txt");
-
     }
 }

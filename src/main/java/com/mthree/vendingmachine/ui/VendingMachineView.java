@@ -21,40 +21,41 @@ public class VendingMachineView {
 
     public int printMenuAndGetSelection(List<Snack> snackList) {
         
-        io.print("Snacks in Vending Machine:"); 
+        io.print("\nSnacks in Vending Machine:"); 
         for (Snack snack : snackList) {
-            io.print("  " + snack.getTitle());
+            io.print("  " + snack.getTitle() + "\n    $" + snack.getPrice() + "  Quantity: " + snack.getCount());
         }
         io.print(""); 
         
         io.print("Main Menu");
         io.print("1. Insert Money");
         io.print("2. Select Snack");
-        io.print("3. List Snacks in Machine");
-        io.print("4. Print Money in Machine");
-        io.print("5. Quit");
+        io.print("3. Get Change");
+        io.print("4. List Snacks in Machine");
+        io.print("5. Print Money in Machine");
+        io.print("6. Quit");
         io.print(""); 
 
-        return io.readInt("Please select from the above choices.", 1, 5);
+        return io.readInt("Please select from the above choices.", 1, 6);
     }
     
     public void displayDisplayAllBanner() {
-        io.print("=== Display All Snacks in Vending Machine ===");
+        io.print("\n=== Display All Snacks in Vending Machine ===");
     }
     
     public void displaySnackList(List<Snack> snackList) {
         for (Snack currentSnack : snackList) {
-            String dvdInfo = String.format("* %s \n  Price: %s \n  Quantity: %s\n",
+            String snackInfo = String.format("* %s \n  Price: %s  Quantity: %s",
                   currentSnack.getTitle(),
                   currentSnack.getPrice(),
                   currentSnack.getCount());
-            io.print(dvdInfo);
+            io.print(snackInfo);
         }
         io.readString("Please hit enter to continue.");
     }
     
     public void displayDisplaySnackBanner () {
-        io.print("=== Display Snack ===");
+        io.print("\n=== Display Snack ===");
     }
 
     public String getSnackTitleChoice() {
@@ -74,7 +75,7 @@ public class VendingMachineView {
     }
     
     public void displayRemoveSnackBanner () {
-        io.print("=== Remove Snack ===");
+        io.print("\n=== Remove Snack ===");
     }
 
     public void displayRemoveResult(Snack snack) {
@@ -95,15 +96,43 @@ public class VendingMachineView {
     }
     
     public String displayDisplayInsertionAndGetMoneyInserted() {
-        io.print("=== Display Insert Money ===");
-        return io.readString("Enter amount to insert into Vending Machine");
+        io.print("\n=== Insert Money ===");
+        return io.readString("Enter amount to insert into Vending Machine.\nEnter in dollar and cents (example 3.00).");
     }
     
     public void displayDisplayMoneyInMachineBanner () {
-        io.print("=== Money in Vending Machine ===");
+        io.print("\n=== Money in Vending Machine ===");
     }
     
     public void displayMoneyInMachine(String moneyInMachine) {
-        io.print(moneyInMachine);
+        io.print("$" + moneyInMachine + "\n\n");
+    }
+    
+    public void incorrectFormatBanner() {
+        io.print("\n*** Enter money in dollar and cents (Examples: 1.20 or 3.21 or 4.00). ***\n");
+    }
+    
+    public void displayDisplayGetChangeBanner() {
+        io.print("\n=== Getting Change form Machine ===");
+    }
+    
+    public void displayChange(String change) {
+        io.print("\nYour change is $" + change);
+    }
+    
+    public void displayDisplayGetSnackBanner() {
+        io.print("\n=== Select A Snack from Vending Machine ===");
+    }
+    
+    public String displaySnackListAndChooseSnack(List<Snack> snackList) {
+        for (Snack currentSnack : snackList) {
+            String snackInfo = String.format("* %s \n  Price: %s  Quantity: %s",
+                  currentSnack.getTitle(),
+                  currentSnack.getPrice(),
+                  currentSnack.getCount());
+            io.print(snackInfo);
+        }
+        
+        return io.readString("Choose a snack from the above choices.");
     }
 }

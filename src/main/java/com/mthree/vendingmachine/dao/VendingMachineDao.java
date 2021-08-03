@@ -90,4 +90,8 @@ public interface VendingMachineDao {
      * was associated with the given snack title
      */
     Snack editSnack(String snackTitle);
+    
+    String getChange();
+    
+    String getChangeInCoins();
 }

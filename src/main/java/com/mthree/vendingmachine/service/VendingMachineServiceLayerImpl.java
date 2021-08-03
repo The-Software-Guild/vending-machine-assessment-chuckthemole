@@ -11,6 +11,8 @@ import com.mthree.vendingmachine.dao.VendingMachinePersistenceException;
 import com.mthree.vendingmachine.dto.Snack;
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -71,10 +73,23 @@ public class VendingMachineServiceLayerImpl implements VendingMachineServiceLaye
 
     @Override
     public Snack removeSnack(String snackTitle) throws VendingMachinePersistenceException {
-        Snack removedSnack = dao.removeSnack(snackTitle);
-        // Write to audit log
-        auditDao.writeAuditEntry("Snack " + snackTitle + " REMOVED.");
-        return removedSnack;
+        Snack snack = dao.getSnack(snackTitle);
+        if (snack.getCount() > 0 && 
+                Double.parseDouble(dao.getMoneyInMachine()) > 
+                Double.parseDouble(snack.getPrice())) {
+            Snack removedSnack = dao.removeSnack(snackTitle);
+            auditDao.writeAuditEntry("Snack " + snackTitle + " REMOVED.");
+            return removedSnack;
+        } else {
+            try {
+                throw new VendingMachineDataValidationException(
+                        "ERROR: All fields are required.");
+            } catch (VendingMachineDataValidationException ex) {
+                Logger.getLogger(VendingMachineServiceLayerImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        return null;
     }
     
     private void validateSnackData(Snack snack) throws 
@@ -90,18 +105,34 @@ public class VendingMachineServiceLayerImpl implements VendingMachineServiceLaye
     }
 
     @Override
-    public void insertMoneyToMachine(String insertedMoney) throws VendingMachineInvalidValueException {
+    public boolean insertMoneyToMachine(String insertedMoney) throws VendingMachineInvalidValueException {
         BigDecimal money = new BigDecimal(insertedMoney);
-        if (money.compareTo(BigDecimal.ZERO) == -1) {
-            throw new VendingMachineInvalidValueException(
-                    "ERROR: Invalid money value.");
+        
+        try {
+            if (money.compareTo(BigDecimal.ZERO) == -1) {
+                throw new VendingMachineInvalidValueException(
+                        "ERROR: Invalid money value.");
+            } else if (money.scale() != 2) {
+                throw new VendingMachineInvalidValueException(
+                        "ERROR: Invalid money value.");
+            } else {
+                money = money.setScale(2);
+                dao.insertMoneyToMachine(money);
+            }
+        } catch (VendingMachineInvalidValueException e) {
+            return false;
         }
         
-        dao.insertMoneyToMachine(money);
+        return true;
     }
     
     @Override
     public String getMoneyInMachine() {
         return dao.getMoneyInMachine();
+    }
+
+    @Override
+    public String getChange() {
+        return dao.getChange();
     }
 }

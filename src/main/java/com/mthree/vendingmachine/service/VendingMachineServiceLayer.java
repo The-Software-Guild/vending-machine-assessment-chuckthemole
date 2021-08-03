@@ -28,8 +28,10 @@ public interface VendingMachineServiceLayer {
     Snack removeSnack(String snackTitle) throws
             VendingMachinePersistenceException;
     
-    void insertMoneyToMachine(String insertedMoney) throws
+    boolean insertMoneyToMachine(String insertedMoney) throws
             VendingMachineInvalidValueException;
     
     String getMoneyInMachine();
+    
+    String getChange();
 }

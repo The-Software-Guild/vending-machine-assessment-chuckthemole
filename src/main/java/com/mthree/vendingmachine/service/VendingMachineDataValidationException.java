@@ -10,7 +10,7 @@ package com.mthree.vendingmachine.service;
  * @author Chuck
  */
 public class VendingMachineDataValidationException extends Exception {
-        public VendingMachineDataValidationException(String message) {
+    public VendingMachineDataValidationException(String message) {
         super(message);
     }
 
