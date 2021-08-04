@@ -25,13 +25,16 @@ public interface VendingMachineServiceLayer {
     Snack getSnack(String snackTitle) throws
             VendingMachinePersistenceException;
  
-    Snack removeSnack(String snackTitle) throws
+    Snack removeSnack(String snackTitle) throws 
+            VendingMachineNoItemInventoryException, 
+            VendingMachineInsufficientFundsException,
             VendingMachinePersistenceException;
     
     boolean insertMoneyToMachine(String insertedMoney) throws
-            VendingMachineInvalidValueException;
+            VendingMachineInvalidValueException,
+            VendingMachinePersistenceException;
     
     String getMoneyInMachine();
     
-    String getChange();
+    String getChange() throws VendingMachinePersistenceException;
 }

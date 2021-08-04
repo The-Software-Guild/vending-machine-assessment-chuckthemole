@@ -1,0 +1,70 @@
+-------------------------------------------------------------------------------
+Test set: com.mthree.vendingmachine.dao.VendingMachineDaoTest
+-------------------------------------------------------------------------------
+Tests run: 11, Failures: 11, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec <<< FAILURE!
+com.mthree.vendingmachine.dao.VendingMachineDaoTest.testInsertMoneyToMachine()  Time elapsed: 0.001 sec  <<< FAILURE!
+org.opentest4j.AssertionFailedError: The test case is a prototype.
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:39)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:109)
+	at com.mthree.vendingmachine.dao.VendingMachineDaoTest.testInsertMoneyToMachine(VendingMachineDaoTest.java:53)
+
+com.mthree.vendingmachine.dao.VendingMachineDaoTest.testGetMoneyInMachine()  Time elapsed: 0 sec  <<< FAILURE!
+org.opentest4j.AssertionFailedError: The test case is a prototype.
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:39)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:109)
+	at com.mthree.vendingmachine.dao.VendingMachineDaoTest.testGetMoneyInMachine(VendingMachineDaoTest.java:67)
+
+com.mthree.vendingmachine.dao.VendingMachineDaoTest.testAddSnacksFromFile()  Time elapsed: 0 sec  <<< FAILURE!
+org.opentest4j.AssertionFailedError: The test case is a prototype.
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:39)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:109)
+	at com.mthree.vendingmachine.dao.VendingMachineDaoTest.testAddSnacksFromFile(VendingMachineDaoTest.java:82)
+
+com.mthree.vendingmachine.dao.VendingMachineDaoTest.testWriteSnacksToFile()  Time elapsed: 0 sec  <<< FAILURE!
+org.opentest4j.AssertionFailedError: The test case is a prototype.
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:39)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:109)
+	at com.mthree.vendingmachine.dao.VendingMachineDaoTest.testWriteSnacksToFile(VendingMachineDaoTest.java:97)
+
+com.mthree.vendingmachine.dao.VendingMachineDaoTest.testAddSnack()  Time elapsed: 0 sec  <<< FAILURE!
+org.opentest4j.AssertionFailedError: The test case is a prototype.
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:39)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:109)
+	at com.mthree.vendingmachine.dao.VendingMachineDaoTest.testAddSnack(VendingMachineDaoTest.java:113)
+
+com.mthree.vendingmachine.dao.VendingMachineDaoTest.testGetAllSnacks()  Time elapsed: 0 sec  <<< FAILURE!
+org.opentest4j.AssertionFailedError: The test case is a prototype.
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:39)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:109)
+	at com.mthree.vendingmachine.dao.VendingMachineDaoTest.testGetAllSnacks(VendingMachineDaoTest.java:127)
+
+com.mthree.vendingmachine.dao.VendingMachineDaoTest.testGetSnack()  Time elapsed: 0 sec  <<< FAILURE!
+org.opentest4j.AssertionFailedError: The test case is a prototype.
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:39)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:109)
+	at com.mthree.vendingmachine.dao.VendingMachineDaoTest.testGetSnack(VendingMachineDaoTest.java:142)
+
+com.mthree.vendingmachine.dao.VendingMachineDaoTest.testRemoveSnack()  Time elapsed: 0 sec  <<< FAILURE!
+org.opentest4j.AssertionFailedError: The test case is a prototype.
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:39)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:109)
+	at com.mthree.vendingmachine.dao.VendingMachineDaoTest.testRemoveSnack(VendingMachineDaoTest.java:157)
+
+com.mthree.vendingmachine.dao.VendingMachineDaoTest.testEditSnack()  Time elapsed: 0 sec  <<< FAILURE!
+org.opentest4j.AssertionFailedError: The test case is a prototype.
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:39)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:109)
+	at com.mthree.vendingmachine.dao.VendingMachineDaoTest.testEditSnack(VendingMachineDaoTest.java:172)
+
+com.mthree.vendingmachine.dao.VendingMachineDaoTest.testGetChange()  Time elapsed: 0 sec  <<< FAILURE!
+org.opentest4j.AssertionFailedError: The test case is a prototype.
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:39)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:109)
+	at com.mthree.vendingmachine.dao.VendingMachineDaoTest.testGetChange(VendingMachineDaoTest.java:186)
+
+com.mthree.vendingmachine.dao.VendingMachineDaoTest.testGetChangeInCoins()  Time elapsed: 0 sec  <<< FAILURE!
+org.opentest4j.AssertionFailedError: The test case is a prototype.
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:39)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:109)
+	at com.mthree.vendingmachine.dao.VendingMachineDaoTest.testGetChangeInCoins(VendingMachineDaoTest.java:200)
+

@@ -29,7 +29,7 @@ public interface VendingMachineDao {
      * @param file file where snacks are located
      * @return true if the file exists and false if the file does not exist
      */
-    boolean addSnacksFromFile(String file);
+    boolean loadSnacksFromFile();
     
      /**
      * Writes the Snacks to the collection file. 
@@ -37,7 +37,7 @@ public interface VendingMachineDao {
      * @param file file where to write the snacks
      * @return true if the file exists and false if the file does not exist
      */
-    boolean writeSnacksToFile(String file);
+    boolean writeSnacksToFile();
     
     /**
      * Adds the given Snacks to the collection and associates it with the given
@@ -79,17 +79,6 @@ public interface VendingMachineDao {
      * was associated with the given snack title
      */
     Snack removeSnack(String snackTitle);
-    
-    /**
-     * Edits the snack associated with the given title.
-     * Returns the snack object that is being edited or null if
-     * there is no snack associated with the given title
-     *
-     * @param snackTitle title of snack to be edited
-     * @return Snack object that was edited or null if no snack
-     * was associated with the given snack title
-     */
-    Snack editSnack(String snackTitle);
     
     String getChange();
     

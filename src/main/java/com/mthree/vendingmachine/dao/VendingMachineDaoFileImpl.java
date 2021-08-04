@@ -30,10 +30,12 @@ import java.util.logging.Logger;
 public class VendingMachineDaoFileImpl implements VendingMachineDao {
     private Map<String, Snack> snacks;
     private BigDecimal moneyInMachine;
+    private final String SNACK_LIST;
     
     public VendingMachineDaoFileImpl() {
         moneyInMachine = BigDecimal.ZERO;
         snacks  = new HashMap<>();
+        SNACK_LIST = "vending_machine_list.txt";
     }
     
     @Override
@@ -54,7 +56,7 @@ public class VendingMachineDaoFileImpl implements VendingMachineDao {
 
     @Override
     public List<Snack> getAllSnacks() {
-        return new ArrayList<Snack>(snacks.values());
+        return new ArrayList<>(snacks.values());
     }
 
     @Override
@@ -71,12 +73,12 @@ public class VendingMachineDaoFileImpl implements VendingMachineDao {
     }
 
     @Override
-    public boolean addSnacksFromFile(String file) {
+    public boolean loadSnacksFromFile() {
 
         Scanner sc;
         
         try {
-            sc = new Scanner(new BufferedReader(new FileReader(file)));
+            sc = new Scanner(new BufferedReader(new FileReader(SNACK_LIST)));
             while (sc.hasNextLine()) {
                 String currentLine = sc.nextLine();
                 String[] snackData = currentLine.split("::");
@@ -98,10 +100,10 @@ public class VendingMachineDaoFileImpl implements VendingMachineDao {
     }
 
     @Override
-    public boolean writeSnacksToFile(String file) { 
+    public boolean writeSnacksToFile() { 
 
         try {
-            PrintWriter out = new PrintWriter(new FileWriter(file));
+            PrintWriter out = new PrintWriter(new FileWriter(SNACK_LIST));
             for (Snack snack : snacks.values()) {
                 out.println("<" + snack.getTitle() + ">::" + 
                         "<" + snack.getPrice() + ">::" +
@@ -114,11 +116,6 @@ public class VendingMachineDaoFileImpl implements VendingMachineDao {
         }
         
         return true;
-    }
-
-    @Override
-    public Snack editSnack(String dvdTitle) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override

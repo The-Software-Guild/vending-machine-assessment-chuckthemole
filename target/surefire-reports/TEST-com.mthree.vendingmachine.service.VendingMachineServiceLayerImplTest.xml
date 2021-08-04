@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="5" failures="0" name="com.mthree.vendingmachine.dto.ChangeTest" time="0.005" errors="0" skipped="0">
+<testsuite tests="7" failures="0" name="com.mthree.vendingmachine.service.VendingMachineServiceLayerImplTest" time="0.024" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="java.vm.version" value="15.0.1+9-18"/>
@@ -12,6 +12,7 @@
     <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
     <property name="user.country" value="US"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="test" value="com.mthree.vendingmachine.service.VendingMachineServiceLayerImplTest"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
     <property name="user.dir" value="/Users/Chuck/Projects/MThree/VendingMachine"/>
     <property name="java.vm.compressedOopsMode" value="Zero based"/>
@@ -42,7 +43,7 @@
     <property name="java.class.path" value="/Applications/NetBeans/Apache NetBeans 12.4.app/Contents/Resources/NetBeans/netbeans/java/maven/boot/plexus-classworlds-2.6.0.jar"/>
     <property name="java.vm.specification.version" value="15"/>
     <property name="sun.arch.data.model" value="64"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dmaven.ext.class.path=/Applications/NetBeans/Apache NetBeans 12.4.app/Contents/Resources/NetBeans/netbeans/java/maven-nblib/netbeans-eventspy.jar install"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dtest=com.mthree.vendingmachine.service.VendingMachineServiceLayerImplTest -Dmaven.ext.class.path=/Applications/NetBeans/Apache NetBeans 12.4.app/Contents/Resources/NetBeans/netbeans/java/maven-nblib/netbeans-eventspy.jar surefire:test"/>
     <property name="java.home" value="/Library/Java/JavaVirtualMachines/jdk-15.0.1.jdk/Contents/Home"/>
     <property name="user.language" value="en"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
@@ -58,9 +59,11 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
   </properties>
-  <testcase classname="com.mthree.vendingmachine.dto.ChangeTest" name="com.mthree.vendingmachine.dto.ChangeTest.testMakeChangeFromPennies100" time="0.004"/>
-  <testcase classname="com.mthree.vendingmachine.dto.ChangeTest" name="com.mthree.vendingmachine.dto.ChangeTest.testMakeChangeFromPennies371" time="0.001"/>
-  <testcase classname="com.mthree.vendingmachine.dto.ChangeTest" name="com.mthree.vendingmachine.dto.ChangeTest.testMakeChangeFromPennies0" time="0"/>
-  <testcase classname="com.mthree.vendingmachine.dto.ChangeTest" name="com.mthree.vendingmachine.dto.ChangeTest.testMakeChangeFromPennies8" time="0"/>
-  <testcase classname="com.mthree.vendingmachine.dto.ChangeTest" name="com.mthree.vendingmachine.dto.ChangeTest.testGetCoinCount" time="0"/>
+  <testcase classname="com.mthree.vendingmachine.service.VendingMachineServiceLayerImplTest" name="com.mthree.vendingmachine.service.VendingMachineServiceLayerImplTest.testCreateDuplicateSnack" time="0.014"/>
+  <testcase classname="com.mthree.vendingmachine.service.VendingMachineServiceLayerImplTest" name="com.mthree.vendingmachine.service.VendingMachineServiceLayerImplTest.testGetAllSnacks" time="0.001"/>
+  <testcase classname="com.mthree.vendingmachine.service.VendingMachineServiceLayerImplTest" name="com.mthree.vendingmachine.service.VendingMachineServiceLayerImplTest.testGetSnack" time="0.007"/>
+  <testcase classname="com.mthree.vendingmachine.service.VendingMachineServiceLayerImplTest" name="com.mthree.vendingmachine.service.VendingMachineServiceLayerImplTest.testRemoveSnack" time="0"/>
+  <testcase classname="com.mthree.vendingmachine.service.VendingMachineServiceLayerImplTest" name="com.mthree.vendingmachine.service.VendingMachineServiceLayerImplTest.testInsertMoneyToMachine" time="0"/>
+  <testcase classname="com.mthree.vendingmachine.service.VendingMachineServiceLayerImplTest" name="com.mthree.vendingmachine.service.VendingMachineServiceLayerImplTest.testGetMoneyInMachine" time="0"/>
+  <testcase classname="com.mthree.vendingmachine.service.VendingMachineServiceLayerImplTest" name="com.mthree.vendingmachine.service.VendingMachineServiceLayerImplTest.testGetChange" time="0.002"/>
 </testsuite>

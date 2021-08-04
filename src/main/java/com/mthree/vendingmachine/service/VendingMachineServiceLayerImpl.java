@@ -39,7 +39,7 @@ public class VendingMachineServiceLayerImpl implements VendingMachineServiceLaye
         // throw a ClassRosterDuplicateIdException
         if (dao.getSnack(snack.getTitle()) != null) {
             throw new VendingMachineDuplicateIdException(
-                    "ERROR: Could not create student.  Student Id "
+                    "ERROR: Could not create snack.  Snack "
                     + snack.getTitle()
                     + " already exists");
         }
@@ -53,7 +53,7 @@ public class VendingMachineServiceLayerImpl implements VendingMachineServiceLaye
         // and persist the Student object
         dao.addSnack(snack.getTitle(), snack);
 
-        // The student was successfully created, now write to the audit log
+        // The Snack was successfully created, now write to the audit log
         auditDao.writeAuditEntry(
                 "Snack " + snack.getTitle() + " CREATED.");
 
@@ -72,24 +72,38 @@ public class VendingMachineServiceLayerImpl implements VendingMachineServiceLaye
     }
 
     @Override
-    public Snack removeSnack(String snackTitle) throws VendingMachinePersistenceException {
+    public Snack removeSnack(String snackTitle) throws 
+            VendingMachineNoItemInventoryException, 
+            VendingMachineInsufficientFundsException,
+            VendingMachinePersistenceException {
+        
         Snack snack = dao.getSnack(snackTitle);
+        
         if (snack.getCount() > 0 && 
                 Double.parseDouble(dao.getMoneyInMachine()) > 
                 Double.parseDouble(snack.getPrice())) {
+            
             Snack removedSnack = dao.removeSnack(snackTitle);
             auditDao.writeAuditEntry("Snack " + snackTitle + " REMOVED.");
             return removedSnack;
+            
         } else {
-            try {
-                throw new VendingMachineDataValidationException(
-                        "ERROR: All fields are required.");
-            } catch (VendingMachineDataValidationException ex) {
-                Logger.getLogger(VendingMachineServiceLayerImpl.class.getName()).log(Level.SEVERE, null, ex);
+            if (snack.getCount() == 0) {
+                try {
+                    throw new VendingMachineNoItemInventoryException("ERROR: Item is not in inventory!");   
+                } catch (VendingMachineNoItemInventoryException e) {
+                    System.out.println(e.toString());
+                    return null;
+                }
+            } else {
+                try {
+                    throw new VendingMachineInsufficientFundsException("ERROR: Insert more money!");   
+                } catch (VendingMachineInsufficientFundsException e) {
+                    System.out.println(e.toString());
+                    return null;
+                }
             }
         }
-        
-        return null;
     }
     
     private void validateSnackData(Snack snack) throws 
@@ -105,7 +119,9 @@ public class VendingMachineServiceLayerImpl implements VendingMachineServiceLaye
     }
 
     @Override
-    public boolean insertMoneyToMachine(String insertedMoney) throws VendingMachineInvalidValueException {
+    public boolean insertMoneyToMachine(String insertedMoney) throws 
+            VendingMachineInvalidValueException,
+            VendingMachinePersistenceException {
         BigDecimal money = new BigDecimal(insertedMoney);
         
         try {
@@ -123,6 +139,7 @@ public class VendingMachineServiceLayerImpl implements VendingMachineServiceLaye
             return false;
         }
         
+        auditDao.writeAuditEntry("Money:  " + insertedMoney + " INSERTED.");
         return true;
     }
     
@@ -132,7 +149,9 @@ public class VendingMachineServiceLayerImpl implements VendingMachineServiceLaye
     }
 
     @Override
-    public String getChange() {
-        return dao.getChange();
+    public String getChange() throws VendingMachinePersistenceException {
+        String change = dao.getChange();
+        auditDao.writeAuditEntry("Change:  " + change + " CHANGE RECEIVED.");
+        return change;
     }
 }

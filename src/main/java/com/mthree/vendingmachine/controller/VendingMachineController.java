@@ -8,7 +8,9 @@ package com.mthree.vendingmachine.controller;
 import com.mthree.vendingmachine.dao.VendingMachineDao;
 import com.mthree.vendingmachine.dao.VendingMachinePersistenceException;
 import com.mthree.vendingmachine.dto.Snack;
+import com.mthree.vendingmachine.service.VendingMachineInsufficientFundsException;
 import com.mthree.vendingmachine.service.VendingMachineInvalidValueException;
+import com.mthree.vendingmachine.service.VendingMachineNoItemInventoryException;
 import com.mthree.vendingmachine.service.VendingMachineServiceLayer;
 import com.mthree.vendingmachine.ui.VendingMachineView;
 import java.util.List;
@@ -27,14 +29,17 @@ public class VendingMachineController {
         this.view = view;
     }
     
-    public void run() throws VendingMachinePersistenceException, VendingMachineInvalidValueException {
+    public void run() throws 
+            VendingMachinePersistenceException, 
+            VendingMachineInvalidValueException, 
+            VendingMachineNoItemInventoryException, 
+            VendingMachineInsufficientFundsException {
         
         boolean keepGoing = true;
-        int menuSelection = 0;
         
         while (keepGoing) {
             List<Snack> snackList = service.getAllSnacks();
-            menuSelection = getMenuSelection(snackList);
+            int menuSelection = getMenuSelection(snackList);
 
             switch (menuSelection) {
                 case 1 -> insertMoney();
@@ -55,21 +60,25 @@ public class VendingMachineController {
         return view.printMenuAndGetSelection(snackList);
     }
     
-    private void insertMoney() throws VendingMachineInvalidValueException {
+    private void insertMoney() throws 
+            VendingMachineInvalidValueException, 
+            VendingMachinePersistenceException {
         String insertedMoney = view.displayDisplayInsertionAndGetMoneyInserted();
         if(!service.insertMoneyToMachine(insertedMoney)) {
             view.incorrectFormatBanner();
         }
     }
     
-    private void selectSnack() throws VendingMachinePersistenceException {
+    private void selectSnack() throws 
+            VendingMachinePersistenceException, 
+            VendingMachineNoItemInventoryException, 
+            VendingMachineInsufficientFundsException {
         view.displayDisplayGetSnackBanner();
         String snack = view.displaySnackListAndChooseSnack(service.getAllSnacks());
-        service.removeSnack(snack);
-        
+        service.removeSnack(snack);       
     }
     
-    private void getChange() {
+    private void getChange() throws VendingMachinePersistenceException {
         view.displayDisplayGetChangeBanner();
         view.displayChange(service.getChange());
     }
@@ -93,7 +102,10 @@ public class VendingMachineController {
         view.displaySnack(snack);
     }
     
-    private void removeSnack() throws VendingMachinePersistenceException {
+    private void removeSnack() throws 
+            VendingMachinePersistenceException, 
+            VendingMachineNoItemInventoryException, 
+            VendingMachineInsufficientFundsException {
         view.displayRemoveSnackBanner();
         String snackTitle = view.getSnackTitleChoice();
         Snack removedSnack = service.removeSnack(snackTitle);

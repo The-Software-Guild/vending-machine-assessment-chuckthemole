@@ -1,0 +1,46 @@
+-------------------------------------------------------------------------------
+Test set: com.mthree.vendingmachine.service.VendingMachineServiceLayerTest
+-------------------------------------------------------------------------------
+Tests run: 7, Failures: 7, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec <<< FAILURE!
+com.mthree.vendingmachine.service.VendingMachineServiceLayerTest.testCreateSnack()  Time elapsed: 0 sec  <<< FAILURE!
+org.opentest4j.AssertionFailedError: The test case is a prototype.
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:39)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:109)
+	at com.mthree.vendingmachine.service.VendingMachineServiceLayerTest.testCreateSnack(VendingMachineServiceLayerTest.java:55)
+
+com.mthree.vendingmachine.service.VendingMachineServiceLayerTest.testInsertMoneyToMachine()  Time elapsed: 0 sec  <<< FAILURE!
+org.opentest4j.AssertionFailedError: The test case is a prototype.
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:39)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:109)
+	at com.mthree.vendingmachine.service.VendingMachineServiceLayerTest.testInsertMoneyToMachine(VendingMachineServiceLayerTest.java:114)
+
+com.mthree.vendingmachine.service.VendingMachineServiceLayerTest.testGetMoneyInMachine()  Time elapsed: 0 sec  <<< FAILURE!
+org.opentest4j.AssertionFailedError: The test case is a prototype.
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:39)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:109)
+	at com.mthree.vendingmachine.service.VendingMachineServiceLayerTest.testGetMoneyInMachine(VendingMachineServiceLayerTest.java:128)
+
+com.mthree.vendingmachine.service.VendingMachineServiceLayerTest.testGetAllSnacks()  Time elapsed: 0 sec  <<< FAILURE!
+org.opentest4j.AssertionFailedError: The test case is a prototype.
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:39)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:109)
+	at com.mthree.vendingmachine.service.VendingMachineServiceLayerTest.testGetAllSnacks(VendingMachineServiceLayerTest.java:69)
+
+com.mthree.vendingmachine.service.VendingMachineServiceLayerTest.testGetSnack()  Time elapsed: 0 sec  <<< FAILURE!
+org.opentest4j.AssertionFailedError: The test case is a prototype.
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:39)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:109)
+	at com.mthree.vendingmachine.service.VendingMachineServiceLayerTest.testGetSnack(VendingMachineServiceLayerTest.java:84)
+
+com.mthree.vendingmachine.service.VendingMachineServiceLayerTest.testRemoveSnack()  Time elapsed: 0 sec  <<< FAILURE!
+org.opentest4j.AssertionFailedError: The test case is a prototype.
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:39)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:109)
+	at com.mthree.vendingmachine.service.VendingMachineServiceLayerTest.testRemoveSnack(VendingMachineServiceLayerTest.java:99)
+
+com.mthree.vendingmachine.service.VendingMachineServiceLayerTest.testGetChange()  Time elapsed: 0 sec  <<< FAILURE!
+org.opentest4j.AssertionFailedError: The test case is a prototype.
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:39)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:109)
+	at com.mthree.vendingmachine.service.VendingMachineServiceLayerTest.testGetChange(VendingMachineServiceLayerTest.java:142)
+
